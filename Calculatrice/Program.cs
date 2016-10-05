@@ -9,15 +9,7 @@ namespace Calculatrice
     class Program
     {
         #region fonctions maths
-        static float SaisirNombre(string prompt)
-        {
-            string reponse;
-
-            Console.WriteLine(prompt);
-            reponse = Console.ReadLine();
-            return float.Parse(reponse); // Convertir une String en Float
-        }
-
+       
         static void Addition(float a, float b)
         {
             float somme;
@@ -52,7 +44,7 @@ namespace Calculatrice
         {
             float resultat;
             
-            if (a != 0 && b != 0)
+            if (b != 0) // Si l'utilisateur tente de diviser par 0
             {
                 resultat = a / b;
                 // Affichage du produit en convertissant les float en string .ToString()
@@ -66,37 +58,73 @@ namespace Calculatrice
 
         #endregion
 
+        #region affichage
 
-        static void Main(string[] args)
+        static float SaisirNombre(string prompt)
+        {
+            string reponse;
+
+            Console.WriteLine(prompt);
+            reponse = Console.ReadLine();
+            return float.Parse(reponse); // Convertir une String en Float
+        }
+
+        static void Menu()
         {
             float a;
             float b;
             string operateur;
+            bool sortie;
+            string caractere_sortie;
 
-            a = SaisirNombre("Saisir un nombre");
-            operateur = Console.ReadLine();
-            b = SaisirNombre("Saisir un second nombre");
+            sortie = false;
             
-
-            if (operateur == "+")
+            // Tant que l'utilisateur ne veut pas sortir du programme
+            while(sortie == false)
             {
-                Addition(a, b);
-            }
+                a = SaisirNombre("Saisir un nombre");
+                Console.WriteLine("Choisissez un opérateur : + ; - ; * ; / ; ");
+                operateur = Console.ReadLine();
+                b = SaisirNombre("Saisir un second nombre");
 
-            if (operateur == "-")
-            {
-                Soustraction(a, b);
-            }
+                if (operateur == "+")
+                {
+                    Addition(a, b);
+                }
 
-            if (operateur == "*")
-            {
-                Multiplication(a, b);
-            }
+                if (operateur == "-")
+                {
+                    Soustraction(a, b);
+                }
 
-            if (operateur == "/")
-            {
-                Division(a, b);
+                if (operateur == "*")
+                {
+                    Multiplication(a, b);
+                }
+
+                if (operateur == "/")
+                {
+                    Division(a, b);
+                }
+
+                // options fin d'opération
+                Console.WriteLine();
+                Console.WriteLine("Appuyez sur Entrée pour continuer");
+                Console.WriteLine("Appuyez sur 'q' pour sortir");
+                caractere_sortie = Console.ReadLine();
+
+                // Si l'utilisateur appuie sur la touche "q" il pourra sortir du programme
+                if (caractere_sortie == "q")
+                {
+                    sortie = true; // quit programme
+                }
             }
+        }
+        #endregion
+
+        static void Main(string[] args)
+        {            
+            Menu();
         }
     }
 }
