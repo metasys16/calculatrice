@@ -18,8 +18,7 @@ namespace Calculatrice
             return float.Parse(reponse); // Convertir une String en Float
         }
 
-        // A structurer //////////////////////////////////
-        static void Additionner(float a, float b)
+        static void Addition(float a, float b)
         {
             float somme;
 
@@ -29,8 +28,44 @@ namespace Calculatrice
             Console.Write("La somme des deux chiffres est : " + somme.ToString());
         }
 
+        static void Soustraction(float a, float b)
+        {
+            float resultat;
+
+            resultat = a - b;
+
+            // Affichage du produit en convertissant les float en string .ToString()
+            Console.Write("Le resultat des deux chiffres est : " + resultat.ToString());
+        }
+
+        static void Multiplication(float a, float b)
+        {
+            float produit;
+
+            produit = a * b;
+
+            // Affichage du produit en convertissant les float en string .ToString()
+            Console.Write("Le produit des deux chiffres est : " + produit.ToString());
+        }
+
+        static void Division(float a, float b)
+        {
+            float resultat;
+            
+            if (a != 0 && b != 0)
+            {
+                resultat = a / b;
+                // Affichage du produit en convertissant les float en string .ToString()
+                Console.Write("Le résultat des deux chiffres est : " + resultat.ToString());
+            }
+            else
+            {
+                Console.WriteLine("PAS POSSIBLE DE DIVISER PAR 0 !!!!!");
+            }
+        }
+
         #endregion
-        
+
 
         static void Main(string[] args)
         {
@@ -45,22 +80,22 @@ namespace Calculatrice
 
             if (operateur == "+")
             {
-                Additionner(a, b);
+                Addition(a, b);
             }
 
             if (operateur == "-")
             {
-                
+                Soustraction(a, b);
             }
 
             if (operateur == "*")
             {
-                
+                Multiplication(a, b);
             }
 
             if (operateur == "/")
             {
-                
+                Division(a, b);
             }
         }
     }
