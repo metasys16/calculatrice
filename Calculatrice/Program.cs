@@ -29,17 +29,6 @@ namespace Calculatrice
             Console.Write("La somme des deux chiffres est : " + somme.ToString());
         }
 
-        static void Multiplier(float a, float b)
-        {
-            
-            float produit;
-
-            produit = a * b;
-
-            // Affichage du produit en convertissant les float en string .ToString()
-            Console.Write("Le produit des deux chiffres est : " + produit.ToString());
-        }
-
         #endregion
         
 
@@ -47,7 +36,6 @@ namespace Calculatrice
         {
             float a;
             float b;
-            float resultat;
             string operateur;
 
             a = SaisirNombre("Saisir un nombre");
@@ -57,26 +45,22 @@ namespace Calculatrice
 
             if (operateur == "+")
             {
-                resultat = a + b;
-                Console.Write("resultat : " + resultat.ToString());
+                Additionner(a, b);
             }
 
             if (operateur == "-")
             {
-                resultat = a - b;
-                Console.Write("resultat : " + resultat.ToString());
+                
             }
 
             if (operateur == "*")
             {
-                resultat = a * b;
-                Console.Write("resultat : " + resultat.ToString());
+                
             }
 
             if (operateur == "/")
             {
-                resultat = a / b;
-                Console.Write("resultat : " + resultat.ToString());
+                
             }
         }
     }
